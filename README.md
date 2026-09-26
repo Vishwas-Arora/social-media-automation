@@ -1,560 +1,202 @@
-\# Social Media Automation Platform
+# Social Media Automation Platform
 
+A full-stack application for creating, managing, scheduling, and publishing social media content from one place.
 
+The project has a React frontend and a Node.js/Express backend, with AI-assisted content generation and integrations for media storage and social media publishing.
 
-A full-stack social media automation and scheduling platform built with React, TypeScript, Node.js, and Express.
+## Features
 
+- User authentication
+- Social media account management
+- Create and schedule posts
+- AI-assisted content generation
+- Multiple content writing styles
+- AI image generation
+- Image and media uploads
+- Scheduled post publishing
+- Dashboard and activity tracking
+- Post generation history
+- Automated scheduling service
+- Cloudinary media storage
+- Zernio integration for social media publishing
 
-
-The application allows users to connect social media accounts, create posts, generate content with AI, upload media, schedule posts, and automatically publish scheduled content to connected platforms.
-
-
-
-\## ✨ Features
-
-
-
-\- 🔐 User authentication
-
-\- 🔗 Connect and manage social media accounts
-
-\- ✍️ Create and schedule social media posts
-
-\- 🤖 AI-powered content generation
-
-\- 🎨 Multiple AI writing tones
-
-\- 🖼️ AI image generation support
-
-\- 📤 Image and media uploads
-
-\- 📅 Schedule posts for a specific date and time
-
-\- 🚀 Automatic scheduled publishing
-
-\- 📊 Dashboard and activity tracking
-
-\- 📝 Post generation history
-
-\- 🔄 Automatic scheduler service
-
-\- ☁️ Cloudinary media storage
-
-\- 🔌 Social media publishing through Zernio
-
-
-
-\## 🏗️ Project Structure
-
-
+## Project Structure
 
 ```text
-
 social-scheduler/
-
-│
-
 ├── client/                 # React frontend
-
 │   ├── public/
-
 │   ├── src/
-
-│   │   ├── api/
-
-│   │   ├── assets/
-
-│   │   ├── components/
-
-│   │   ├── context/
-
-│   │   └── pages/
-
 │   ├── package.json
-
 │   └── vite.config.ts
-
 │
-
 ├── server/                 # Node.js / Express backend
-
 │   ├── config/
-
 │   ├── controllers/
-
 │   ├── middlewares/
-
 │   ├── models/
-
 │   ├── routes/
-
 │   ├── services/
-
 │   ├── package.json
-
 │   └── server.ts
-
 │
-
 ├── .gitignore
-
 └── How to Run Project.pdf
-
-🛠️ Tech Stack
-
+Tech Stack
 Frontend
-
 React
-
 TypeScript
-
 Vite
-
 Tailwind CSS
-
 React Router
-
 Axios
-
 Lucide React
-
 React Hot Toast
-
 Backend
-
 Node.js
-
 Express
-
 TypeScript
-
 MongoDB
-
 Mongoose
-
-JWT Authentication
-
+JWT
 bcrypt
-
 Multer
-
 node-cron
-
-External Services
-
+Services
 Google Gemini / Google GenAI
-
 Cloudinary
-
 Zernio
-
 MongoDB
-
-🚀 Getting Started
-
+Getting Started
 Prerequisites
 
-
-
-Make sure you have the following installed:
-
-
+Make sure you have these installed:
 
 Node.js
-
 npm
-
 MongoDB
-
 Git
-
-
-
-Clone the repository:
-
-
-
+Clone the repository
 git clone https://github.com/Vishwas-Arora/social-media-automation.git
-
-
-
-Move into the project:
-
-
-
 cd social-media-automation
+Installation
 
-📦 Install Dependencies
-
-Client
-
-
-
-Open a terminal in the client directory:
-
-
+Install the frontend dependencies:
 
 cd client
-
 npm install
+
+Install the backend dependencies:
+
+cd ../server
+npm install
+Environment Variables
+
+The application uses environment variables for configuration and API credentials.
+
+Create the following files locally:
+
+client/.env
+server/.env
+
+These files are excluded from Git using .gitignore.
 
 Server
 
+Configure the required backend variables in server/.env.
 
-
-Open another terminal and run:
-
-
-
-cd server
-
-npm install
-
-🔐 Environment Variables
-
-
-
-Environment variables are required for the application to work correctly.
-
-
-
-Create:
-
-
-
-client/.env
-
-server/.env
-
-
-
-Do not commit these files to GitHub.
-
-
-
-Server Environment Variables
-
-
-
-The exact variables depend on the services configured for your deployment. Typical configuration includes:
-
-
+For example:
 
 PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 
-MONGODB\_URI=your\_mongodb\_connection\_string
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-JWT\_SECRET=your\_jwt\_secret
+ZERNIO_API_KEY=your_zernio_api_key
+GEMINI_API_KEY=your_gemini_api_key
+Client
 
+Configure the frontend API URL in client/.env:
 
+VITE_API_URL=http://localhost:5000
 
-CLOUDINARY\_CLOUD\_NAME=your\_cloudinary\_cloud\_name
+Never commit API keys, passwords, database credentials, JWT secrets, or other sensitive information to GitHub.
 
-CLOUDINARY\_API\_KEY=your\_cloudinary\_api\_key
-
-CLOUDINARY\_API\_SECRET=your\_cloudinary\_api\_secret
-
-
-
-ZERNIO\_API\_KEY=your\_zernio\_api\_key
-
-
-
-GEMINI\_API\_KEY=your\_gemini\_api\_key
-
-Client Environment Variables
-
-
-
-Configure the frontend API URL according to your local or production backend.
-
-
-
-Example:
-
-
-
-VITE\_API\_URL=http://localhost:5000
-
-
-
-Never publish real API keys, passwords, JWT secrets, or database credentials.
-
-
-
-▶️ Running the Application
-
-Start the Backend
-
-
+Running the Application
+Start the backend
 
 From the server directory:
 
-
-
 npm run server
-
-
-
-The development server uses nodemon and tsx.
-
-
-
-Start the Frontend
-
-
+Start the frontend
 
 From the client directory:
 
-
-
 npm run dev
 
+Vite will display the local development URL in the terminal.
 
+AI Content Generation
 
-Vite will provide a local development URL in the terminal.
+The application includes an AI content composer that can generate social media content from a user's prompt.
 
-
-
-Open that URL in your browser.
-
-
-
-🧠 AI Content Generation
-
-
-
-The platform includes an AI Composer that can generate social media content from a user prompt.
-
-
-
-Users can select different writing styles such as:
-
-
+Users can choose different writing styles, such as:
 
 Professional
-
 Creative
-
 Funny
-
 Minimalist
-
 Excited
 
+The generated content can then be edited and scheduled for publishing.
 
-
-Generated content can then be scheduled for publication.
-
-
-
-📅 Social Media Scheduling
-
-
+Post Scheduling
 
 Users can:
 
-
-
 Create a post
-
-Select one or more social platforms
-
+Select social media accounts
 Add text content
-
-Upload media when required
-
-Select a date
-
-Select a time
-
+Upload media
+Select a date and time
 Schedule the post
 
+The backend scheduler periodically checks for posts that are ready to be published.
 
+Automated Publishing
 
-The backend scheduler checks for posts that are due and processes them automatically.
+When a scheduled post reaches its publishing time, the backend processes the post and sends it to the configured social media publishing service.
 
+The application then updates the post status and records the related activity.
 
+Security
 
-🚀 Automated Publishing
+The project uses a .gitignore file to prevent sensitive files such as .env and dependency directories such as node_modules from being committed.
 
+Do not expose production credentials or API keys in the source code.
 
+Updating the Project
 
-The backend uses a scheduled job to check for posts that are ready to be published.
-
-
-
-When a scheduled post reaches its publication time, the application:
-
-
-
-Finds the user's connected social accounts
-
-Builds the publishing payload
-
-Sends the post to the configured publishing service
-
-Updates the post status
-
-Records the publishing activity
-
-📁 Important Notes
-
-Environment Files
-
-
-
-.env files are intentionally excluded from Git using .gitignore.
-
-
-
-Never commit credentials or secrets to the repository.
-
-
-
-Dependencies
-
-
-
-node\_modules directories are also excluded from Git.
-
-
-
-Install dependencies with:
-
-
-
-npm install
-
-
-
-instead of committing node\_modules.
-
-
-
-🔧 Available Scripts
-
-Client
-
-
-
-Development:
-
-
-
-npm run dev
-
-
-
-Production build:
-
-
-
-npm run build
-
-
-
-Lint:
-
-
-
-npm run lint
-
-
-
-Preview production build:
-
-
-
-npm run preview
-
-Server
-
-
-
-Development:
-
-
-
-npm run server
-
-
-
-Production/start:
-
-
-
-npm start
-
-
-
-Build:
-
-
-
-npm run build
-
-🔄 Updating the Repository
-
-
-
-After making changes:
-
-
+After making changes to the project:
 
 git add .
-
 git commit -m "Describe your changes"
-
 git push
 
-
-
-Example:
-
-
+For example:
 
 git add .
-
-git commit -m "Added post scheduling improvements"
-
+git commit -m "Improve post scheduling"
 git push
-
-📌 Project Status
-
-
+Project Status
 
 This project is currently under development.
 
+Features, integrations, and configuration may change as development continues.
 
-
-Features and integrations may change as the application evolves.
-
-
-
-📄 License
-
-
+#License
 
 No open-source license has currently been specified for this project.
-
-
-
-
-
-\### Add it to GitHub
-
-
-
-Since you're already using Git Bash, this is easiest.
-
-
-
-Go to your project folder:
-
-
-
-```bash
-
-cd \~/Downloads/Social-Media-Automation-Project-Source-Code/social-scheduler
-
